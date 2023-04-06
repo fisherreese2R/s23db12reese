@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to my Web Server #{title} <br>
+
+  -var image_names = ["house1.jpg","house2.jpg", "house3.jpg", "house4.jpg", "house5.jpg"]
+  -for (let i = 0; i < 3; i++)
+    -var num = Math.floor(Math.random()*5);
+    -var image = `images/${image_names[num]}`
+    img(src=`${image}`)
+

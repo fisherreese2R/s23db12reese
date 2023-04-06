@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  -
+    class House{
+      constructor(house_bed_bath, house_sqft, house_cost){
+        this.house_bed_bath = house_bed_bath;
+        this.house_sqft = house_sqft;
+        this.house_cost = house_cost;
+      }
+    }
+    let results =[]
+
+    let house1 = new House("3bd/2ba", 1200, 150000);
+    let house2 = new House("3bd/2ba", 2000, 200000);
+    let house3 = new House("4bd/3ba", 3000, 600001);
+
+    results = [house1, house2, house3];
+
+  div(class="container-fluid")
+    div(class="row")
+      each item in results
+        div(class="col-sm-2") Beds and Baths: #{item.house_bed_bath} <br> House sq.ft.: #{item.house_sqft} <br> House Cost: #{item.house_cost}
+
