@@ -4,6 +4,39 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config();
+const connectionString = process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true});
+
+//Get the default connection
+var db = mongoose.connection;
+//Bind connection to error event
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+var house = require("./models/house");
+
+// We can seed the collection if needed on
+async function recreateDB(){
+  // Delete everything
+  await house.deleteMany();
+
+  let instance1 = new house({bedsandbaths:"3bd/2ba", sqft:'1200', cost:150000});
+  let instance2 = new house({bedsandbaths:"4bd/3ba", sqft:'2700', cost:350000});
+  let instance3 = new house({bedsandbaths:"4bd/3ba", sqft:'4500', cost:500000});
+  instance1.save()
+  instance2.save()
+  instance3.save()
+ }
+
+ // We can seed the collection if needed on
+
+let reseed = true;
+if (reseed) 
+{ 
+  recreateDB();
+}
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var housesRouter = require('./routes/Houses');
@@ -21,6 +54,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
