@@ -19,11 +19,11 @@ var house = require("./models/house");
 // We can seed the collection if needed on
 async function recreateDB(){
   // Delete everything
-  await house.deleteMany();
+  await house.deleteMany()
 
-  let instance1 = new house({bedsandbaths:"3bd/2ba", sqft:'1200', cost:150000});
-  let instance2 = new house({bedsandbaths:"4bd/3ba", sqft:'2700', cost:350000});
-  let instance3 = new house({bedsandbaths:"4bd/3ba", sqft:'4500', cost:500000});
+  let instance1 = new house({house_bed_bath:"3bd/2ba", house_sqft:'1200', house_cost:150000});
+  let instance2 = new house({house_bed_bath:"4bd/3ba", house_sqft:'2700', house_cost:350000});
+  let instance3 = new house({house_bed_bath:"4bd/3ba", house_sqft:'4500', house_cost:500000});
   instance1.save()
   instance2.save()
   instance3.save()
@@ -39,7 +39,7 @@ if (reseed)
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var housesRouter = require('./routes/Houses');
+var housesRouter = require('./routes/houses');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/Houses', housesRouter);
+app.use('/houses', housesRouter);
 app.use('/board', boardRouter);
 app.use('/selector', selectorRouter);
 app.use('/resource', resourceRouter);

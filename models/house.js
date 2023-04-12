@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const houseSchema = mongoose.Schema({
-bedsandbaths: String,
-sqft: Number,
-cost: Number
+house_bed_bath: String,
+house_sqft: Number,
+house_cost: Number
 })
 module.exports = mongoose.model("house", houseSchema)

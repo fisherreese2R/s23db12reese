@@ -1,8 +1,31 @@
 var house = require('../models/house');
-// List of all Costumes
-exports.house_list = function(req, res) {
- res.send('NOT IMPLEMENTED: house list');
-};
+
+
+    // List of all Costumes
+    exports.house_list = async function(req, res) 
+    {
+        try{
+            theHouses = await house.find();
+            res.send(theHouses);
+        }
+        catch(err){
+            res.status(500);
+            res.send(`{"error": ${err}}`);
+         }
+        };
+
+    // VIEWS
+    // Handle a show all view
+    exports.house_view_all_Page = async function(req, res) {
+    try{
+        theHouses = await house.find();
+        res.render('houses', { title: 'Houses Search Results', results: theHouses });
+    }
+    catch(err){
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
+}
 // for a specific Costume.
 exports.house_detail = function(req, res) {
  res.send('NOT IMPLEMENTED: house detail: ' + req.params.id);
