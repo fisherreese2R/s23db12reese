@@ -22,7 +22,7 @@ exports.house_view_all_Page = async function(req, res)
     try
     {
         theHouses = await house.find();
-        res.render('houses', { title: 'Houses Search Results', results: theHouses });
+        res.render('Houses', { title: 'Houses Search Results', results: theHouses });
     }
     catch(err)
     {
