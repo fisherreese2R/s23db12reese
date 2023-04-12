@@ -39,7 +39,7 @@ if (reseed)
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var housesRouter = require('./routes/houses');
+var housesRouter = require('./routes/Houses');
 var boardRouter = require('./routes/board');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
