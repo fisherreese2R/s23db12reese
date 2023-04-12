@@ -21,9 +21,9 @@ async function recreateDB(){
   // Delete everything
   await house.deleteMany()
 
-  let instance1 = new house({house_bed_bath:"3bd/2ba", house_sqft:'1200', house_cost:150000});
-  let instance2 = new house({house_bed_bath:"4bd/3ba", house_sqft:'2700', house_cost:350000});
-  let instance3 = new house({house_bed_bath:"4bd/3ba", house_sqft:'4500', house_cost:500000});
+  let instance1 = new house({house_bed_bath:"3bd/2ba", house_sqft:1200, house_cost:150000});
+  let instance2 = new house({house_bed_bath:"4bd/3ba", house_sqft:2700, house_cost:350000});
+  let instance3 = new house({house_bed_bath:"4bd/3ba", house_sqft:4500, house_cost:500000});
   instance1.save()
   instance2.save()
   instance3.save()
