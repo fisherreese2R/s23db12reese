@@ -73,6 +73,25 @@ exports.house_delete = function(req, res) {
  res.send('NOT IMPLEMENTED: house delete DELETE ' + req.params.id);
 };
 // Handle Costume update form on PUT.
-exports.house_update_put = function(req, res) {
- res.send('NOT IMPLEMENTED: house update PUT' + req.params.id);
+//exports.house_update_put = function(req, res) {
+// res.send('NOT IMPLEMENTED: house update PUT' + req.params.id);
+//};
+exports.house_update_put = async function(req, res) {
+ console.log(`update on id ${req.params.id} with body
+${JSON.stringify(req.body)}`)
+ try {
+ let toUpdate = await house.findById( req.params.id)
+ // Do updates of properties
+ if(req.body.house_bed_bath)
+ toUpdate.house_bed_bath = req.body.house_bed_bath;
+ if(req.body.house_sqft) toUpdate.house_sqft = req.body.house_sqft;
+ if(req.body.house_cost) toUpdate.house_cost = req.body.house_cost;
+ let result = await toUpdate.save();
+ console.log("Sucess " + result)
+ res.send(result)
+ } catch (err) {
+ res.status(500)
+ res.send(`{"error": ${err}: Update for id ${req.params.id}
+failed`);
+ }
 };
