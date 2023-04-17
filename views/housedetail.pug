@@ -1,0 +1,23 @@
+extends layout 
+
+block content 
+    h1=title
+
+    - let houseid = toShow._id
+    - let house_bed_bath = toShow.house_bed_bath
+    - let house_cost = toShow.house_cost
+    - let house_sqft = toShow.house_sqft
+    
+    div
+        div.row
+            div(class='houseAttr mr-3') House ID is:
+            div #{houseid}
+        div.row
+            div(class='houseAttr mr-3') House bed and baths is:
+            div #{house_bed_bath}
+        div.row
+            div(class='houseAttr mr-3') House sqft is:
+            div #{house_sqft}
+        div.row
+            div(class='houseAttr mr-3') House Cost is:
+            div #{house_cost}

@@ -18,4 +18,5 @@ router.put('/houses/:id', house_controller.house_update_put);
 router.get('/houses/:id', house_controller.house_detail);
 // GET request for list of all Costume items.
 router.get('/houses', house_controller.house_list);
+
 module.exports = router;
