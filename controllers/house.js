@@ -69,8 +69,16 @@ exports.house_detail = async function(req, res) {
 // res.send('NOT IMPLEMENTED: house create POST');
 //};
 // Handle Costume delete form on DELETE.
-exports.house_delete = function(req, res) {
- res.send('NOT IMPLEMENTED: house delete DELETE ' + req.params.id);
+exports.house_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await house.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
 };
 // Handle Costume update form on PUT.
 //exports.house_update_put = function(req, res) {
