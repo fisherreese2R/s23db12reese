@@ -5,15 +5,15 @@ block content
 
     form(id='houseForm', action="/resource/houses", method="POST")
         div.form-group
-            label.costumeAttr(for='house_bed_bath') House bed/bath
-            input#costume_type(type='text', name='house_bed_bath')
+            label.houseAttr(for='house_bed_bath') House bed/bath
+            input#house_bed_bath(type='text', name='house_bed_bath')
         div.form-group
-            label.costumeAttr(for='house_sqft') House sqft
-            input#size(type='number', name='house_sqft')
+            label.houseAttr(for='house_sqft') House sqft
+            input#housesqft(type='number', name='house_sqft')
         div.form-group
-            label.costumeAttr(for='house_cost') House cost
-            input#cost(type='number', name='house_cost')
-            input(type="submit")
+            label.houseAttr(for='house_cost') House cost
+            input#house_cost(type='number', name='house_cost')
+        input(type="submit")
 
     script.
         document.forms['houseForm'].addEventListener('submit', (event) => {

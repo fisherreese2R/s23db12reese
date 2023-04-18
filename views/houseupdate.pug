@@ -14,15 +14,15 @@ block content
             -let actionid = "/resource/houses/" + houseid
         form(id='houseForm', action= actionid, method="PUT")
             div.form-group
-                label.costumeAttr(for='house_bed_bath') House bed/baths 
-                input#costume_type(type='text', name='house_bed_bath', value= house_bed_bath)
+                label.houseAttr(for='house_bed_bath') House bed/baths 
+                input#house_bed_bath(type='text', name='house_bed_bath', value= house_bed_bath)
             div.form-group
-                label.costumeAttr(for='house_sqft') House sqft
-                input#size(type='number', name='house_sqft', value= house_sqft)
+                label.houseAttr(for='house_sqft') House sqft
+                input#house_sqft(type='number', name='house_sqft', value= house_sqft)
             div.form-group
-                label.costumeAttr(for='house_cost') House cost
-                input#cost(type='number', name='house_cost', value= house_cost )
-                input(type="submit")
+                label.houseAttr(for='house_cost') House cost
+                input#house_cost(type='number', name='house_cost', value= house_cost )
+            input(type="submit")
         script.
             document.forms['houseForm'].addEventListener('submit', (event) => {
             event.preventDefault();
