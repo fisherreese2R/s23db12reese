@@ -11,7 +11,7 @@ block content
         div.row(class='mb-2')
             div.mr-1 ID is
             div #{houseid}
-            -let actionid = "/resource/houses/" + costumeid
+            -let actionid = "/resource/houses/" + houseid
         form(id='houseForm', action= actionid, method="PUT")
             div.form-group
                 label.costumeAttr(for='house_bed_bath') House bed/baths 
@@ -38,4 +38,5 @@ block content
             }).catch((error) => {
             // TODO handle error
             alert("Update failed " + error )
+            });
             });
