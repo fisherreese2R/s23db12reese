@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1(style="font-weight: Bold")= title
+  p(style="text-decoration: underline; font-family: Arial, sans-serif; font-size: 20px; color: red;" ) Welcome to #{title}
 
   -
     //class House{
@@ -18,7 +18,7 @@ block content
 
     let items = results
 
-  div(class="container-fluid")
+  div(class="container-fluid" style="background-color:black; color: white" )
     div(class="row")
       each item in items
         div(class="col-sm-2") Beds and Baths: #{item.house_bed_bath} <br> House sq.ft.: #{item.house_sqft} <br> House Cost: #{item.house_cost}
