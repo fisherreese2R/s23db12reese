@@ -1,5 +1,7 @@
 extends layout
 
+
+
 block content
   h1(style="font-weight: Bold")= title
   p(style="text-decoration: underline; font-family: Arial, sans-serif; font-size: 20px; color: red;" ) Welcome to #{title}
@@ -17,6 +19,20 @@ block content
     //let house3 = new House("4bd/3ba", 3000, 600001);
 
     let items = results
+
+  div(class="container-fluid")
+    div(class="m-1")
+      each item in items
+        -let destination = 'dispatch(\"/houses/update/?id=${item._id}"\)'
+        div(class="row-sm-2", class="m-1") Item #{item.house_bed_bath}(#{item.house_sqft}) is #{item.house_cost}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+
+
+  script.
+    function dispatch(path){
+    window.location.href=path
+    }
+
 
   div(class="container-fluid" style="background-color:black; color: white" )
     div(class="row")
