@@ -23,7 +23,7 @@ block content
   div(class="container-fluid")
     div(class="m-1")
       each item in items
-        -let destination = 'dispatch(\"/houses/update/?id=${item._id}"\)'
+        -let destination = `dispatch(\"/houses/update/?id=${item._id}"\)`
         div(class="row-sm-2", class="m-1") Item #{item.house_bed_bath}(#{item.house_sqft}) is #{item.house_cost}
           button.btn( class="btn-primary ml-1", onclick= destination) Update
 
