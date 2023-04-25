@@ -41,7 +41,7 @@ router.post('/register', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
- res.render('login', { title: 'Costume App Login', user : req.user });
+ res.render('login', { title: 'House App Login', user : req.user });
 });
 
 router.post('/login', passport.authenticate('local'), function(req,res)
@@ -50,6 +50,8 @@ router.post('/login', passport.authenticate('local'), function(req,res)
 //    {
 //    console.log("Send it back to " + req.session.toReturn)
 //    res.redirect(req.session.toReturn);
+    if(req.session.returnTo)
+    res.redirect(req.session.returnTo);
     res.redirect('/');
 });
 

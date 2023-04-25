@@ -19,13 +19,20 @@ block content
     //let house3 = new House("4bd/3ba", 3000, 600001);
 
     let items = results
+    let destinationCreate = `dispatch(\"/houses/create\")`
+
+  button.btn( class="btn-primary ml-1", onclick= destinationCreate) Create a House
 
   div(class="container-fluid")
     div(class="m-1")
       each item in items
         -let destination = `dispatch(\"/houses/update/?id=${item._id}"\)`
+        -let destination2 = `dispatch(\"/houses/detail/?id=${item._id}"\)`
+        -let destination3 = `dispatch(\"/houses/delete/?id=${item._id}"\)`
         div(class="row-sm-2", class="m-1") Item #{item.house_bed_bath}(#{item.house_sqft}) is #{item.house_cost}
           button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-primary ml-1", onclick= destination2) detail
+          button.btn( class="btn-primary ml-1", onclick= destination3) delete
 
 
   script.
